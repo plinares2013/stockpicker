@@ -1,0 +1,118 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.important {
+			font-weight: bold;
+			padding: 10px;
+			width: 100%;
+		}
+		.logo {
+			background-color: #ffffff;
+			height: 150px;
+		}
+		.panel {
+			width: 100%;
+			height: 100%;
+		}
+		
+		h1 {
+  			font-size: 2em;
+  			font-weight: bold;
+  			color: #777777;
+  			margin: 40px 0px 70px;
+  			text-align: center;
+		}
+
+		.sendButton {
+  			display: block;
+  			font-size: 16pt;
+		}
+
+/** Most GWT widgets already have a style name defined */
+		.gwt-DialogBox {
+ 			 width: 400px;
+		}
+
+		.dialogVPanel {
+ 			 margin: 5px;
+		}
+
+		.serverResponseLabelError {
+  			color: red;
+		}
+
+/* Formatting specific to the StockWatcher application */
+
+		body {
+  			padding: 10px;
+		}
+
+/* stock list header row */
+		.watchListHeader {
+  			background-color: #2062B8;
+  			color: white;
+  			font-style: italic;
+		}
+
+/* stock list flex table */
+		.watchList {
+  			border: 1px solid silver;
+  			padding: 2px;
+ 			 margin-bottom:6px;
+		}
+
+/* stock list Price and Change fields */
+		.watchListNumericColumn {
+  			text-align: right;
+  			width:8em;
+		}
+
+/* stock list Remove column */
+		.watchListRemoveColumn {
+  			text-align: center;
+		}
+
+/* Add Stock panel */
+		.addPanel {
+  			margin: 10px 0px 15px 0px;
+		}
+		
+		.errorMessage {
+			color: red; 
+		}
+	</ui:style>
+	
+		<g:DockLayoutPanel unit='PX' ui:field="mainDockLayoutPanel">
+		    <g:west size="200">
+		    	<g:HTMLPanel>
+		            <h1>StockPicker</h1>
+		        	<g:VerticalPanel>
+		            	<g:Button styleName="{style.important}" ui:field="buttonShowStocks">Show Stocks</g:Button>
+		            	<g:HTML> </g:HTML>
+		            	<g:Button styleName="{style.important}" ui:field="buttonShowIndexes">Show Indexes</g:Button>
+		            	<g:HTML> </g:HTML>		            	
+		            	<g:Button styleName="{style.important}" ui:field="buttonShowWeights">Show Weight</g:Button>
+			            <g:HTML> </g:HTML>	            	
+		            	<g:Button styleName="{style.important}" ui:field="buttonShowPoints">Show Points</g:Button>
+		            	<g:HTML> </g:HTML>
+		            	<g:Button styleName="{style.important}" ui:field="configure">Configure</g:Button>
+		        	</g:VerticalPanel>
+		  		</g:HTMLPanel>
+		    </g:west>
+		    <g:center>
+		       <g:ScrollPanel ui:field = "centerMainPanel">
+		        <g:VerticalPanel  ui:field = "centerVerticalPanel" addStyleNames = "{style.panel}">
+		        	<g:Label ui:field = "errorMsgLabel" styleName = "{style.errorMessage}"></g:Label>
+		        	<g:Anchor ui:field = "SignOutLink"></g:Anchor>
+		        	<g:FlexTable ui:field = "stocksFlexTable"></g:FlexTable>
+		        	<g:HorizontalPanel ui:field = "addPanel" addStyleNames = "{style.addPanel}">
+		        		<g:TextBox ui:field = "newSymbolTextBox"></g:TextBox>
+		        		<g:Button ui:field = "addStockButton">Add</g:Button>
+		        	</g:HorizontalPanel>
+		        	<g:Label ui:field = "lastUpdatedLabel"></g:Label>
+		        </g:VerticalPanel>
+		       </g:ScrollPanel>
+		    </g:center>
+		</g:DockLayoutPanel>
+</ui:UiBinder> 

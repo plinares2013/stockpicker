@@ -1,0 +1,41 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	
+	<ui:style>
+		.important {
+			font-weight: bold;
+			padding: 10px;
+			width: 100%;
+		}
+		.logo {
+			background-color: #ffffff;
+			height: 150px;
+		}
+
+	</ui:style>
+ 	
+		<g:DockLayoutPanel unit='PX' ui:field="mainDockLayoutPanel">
+		    <g:west size="200">
+		    	<g:HTMLPanel>
+		            <h1>StockPicker</h1>
+		        	<g:VerticalPanel>
+		            	<g:Button styleName="{style.important}" ui:field="buttonShowStocks">Show Stocks</g:Button>
+		            	<g:HTML> </g:HTML>
+		            	<g:Button styleName="{style.important}" ui:field="buttonShowIndexes">Show Indexes</g:Button>
+		            	<g:HTML> </g:HTML>		            	
+		            	<g:Button styleName="{style.important}" ui:field="buttonShowWeights">Show Weight</g:Button>
+			            <g:HTML> </g:HTML>	            	
+		            	<g:Button styleName="{style.important}" ui:field="buttonShowPoints">Show Points</g:Button>
+		            	<g:HTML> </g:HTML>
+		            	<g:Button styleName="{style.important}" ui:field="configure">Configure</g:Button>
+		        	</g:VerticalPanel>
+		  		</g:HTMLPanel>
+		    </g:west>
+		    <g:center>
+		        <g:SimplePanel  ui:field = "centerMainPanel"></g:SimplePanel>
+		    </g:center>
+		</g:DockLayoutPanel>
+
+
+</ui:UiBinder> 

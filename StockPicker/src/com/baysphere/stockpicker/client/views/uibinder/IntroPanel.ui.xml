@@ -1,0 +1,40 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		/* Add CSS here. See the GWT docs on UI Binder for more details */
+		.body {
+			font-family: Courrier New;
+			font-size: 30px
+		}
+	</ui:style>
+	
+	<g:ScrollPanel ui:field="scrollPanel">
+		<g:HTMLPanel styleName = "{style.body}">
+			<p>This tool is designed for optimal stock picking.</p>
+			<p> The operations that you can do are powerful.</p>
+			<ul>
+				<li> <b>Show Stocks</b>: enables a view of individual stocks</li>
+				<li> <b>Show Indexes</b>: list the different types of indexes used and their accuracy</li>
+				<li> <b>Show Weight</b>: provides the importance given to each element of a stock such as PER, ROE, ROA, ...)
+					<ul>
+				    <li> as an example, PER has a weight of 10 when calculating the overall grade of a stock</li>
+				    <li> or ROA has a weight of 7 in the calculation</li>
+					</ul>
+			    </li>
+				<li> <b>Show Points</b>: gives the amount of points for different levels of the elements associated to a stock. 
+				    Points are allocated to an element depending on which bracket the element stands </li>
+				 <li> <b>Configure</b>: allows the administrator to modify the parameters of the application. The parameters include:
+				     <ul>
+				         <li>the Weights to caculate a stock index</li>
+				         <li>the points allocated to the elements of a stock</li>
+				         <li>the parameters used to optimize the backend calculation in AppEngine</li>
+				     </ul>   
+				 </li>
+			</ul>
+			<p> More than 6000 stocks are evaluated and their relative strength could be compared.</p>
+			<p> The scan of the entire database is happening every week and the indexes of the stocks updated.</p>
+			<p> The methods for evaluating the stocks can be changed trhough configuration panels. The weights associated to each element of the stock as well as the points allocated for each bracket of a given category.</p>
+		</g:HTMLPanel>
+	</g:ScrollPanel>
+</ui:UiBinder> 
