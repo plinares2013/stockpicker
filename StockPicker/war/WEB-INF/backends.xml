@@ -1,0 +1,10 @@
+<backends>
+ <backend name="backendrefreshstock">
+   <class>B2</class>
+   <instances>1</instances>
+   <options>
+   	  <dynamic>false</dynamic>
+   	  <fail-fast>false</fail-fast>
+   </options>
+ </backend>
+</backends>

@@ -33,19 +33,21 @@ public class MainPanelViewImpl extends Composite implements MainPanelView {
 		centerMainPanel.add(new IntroPanel());
 	}
 
-	@UiField Button buttonShowStocks;
-	@UiField Button buttonShowIndexes;
-	@UiField Button buttonShowWeights;
-	@UiField Button buttonShowPoints;
-	@UiField Button configure;
+	//@UiField Button buttonShowStocks;
+	//@UiField Button buttonShowIndexes;
+	//@UiField Button buttonShowWeights;
+	//@UiField Button buttonShowPoints;
+	//@UiField Button configure;
 	@UiField DockLayoutPanel mainDockLayoutPanel;
 	@UiField SimplePanel centerMainPanel;
 
 
-	@UiHandler("buttonShowStocks")
-	void onClick(ClickEvent e) {
-		Window.alert("Hello!");
-	}
+	//@UiHandler("buttonShowStocks")
+	//void onClick(ClickEvent e) {
+	//	if (presenter != null) {
+	//		presenter.clickedButtonShowStocks();
+	//	}
+	//}
 
 	@Override
 	public void setPresenter(MainPanelPresenter presenter) {

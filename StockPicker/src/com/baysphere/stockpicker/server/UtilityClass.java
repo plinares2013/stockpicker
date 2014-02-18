@@ -25,7 +25,7 @@ public class UtilityClass {
 	
 	private static int peThreshold = 3; //Minimal P/E ratio to be considered for index evaluation
 	
-	private static String stockOrder = "descending";  // Can be wither ascending or descending
+	private static String stockOrder = "descending";  // Can be either ascending or descending
 	
 	
 	public static User getUser() {

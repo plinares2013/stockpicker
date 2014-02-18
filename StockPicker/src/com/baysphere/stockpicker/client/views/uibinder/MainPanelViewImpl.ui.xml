@@ -1,6 +1,7 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:my="urn:import:com.baysphere.stockpicker.client.views.uibinder">
 	
 	<ui:style>
 		.important {
@@ -12,24 +13,22 @@
 			background-color: #ffffff;
 			height: 150px;
 		}
-
+		.banner {
+			height: 20px;
+			background: #0000CD;
+		}
 	</ui:style>
  	
 		<g:DockLayoutPanel unit='PX' ui:field="mainDockLayoutPanel">
+		    <g:north size="50">
+		        <g:HTMLPanel>
+		            <g:HTML styleName = "{style.banner}"/>
+		        </g:HTMLPanel>  
+		    </g:north>
 		    <g:west size="200">
 		    	<g:HTMLPanel>
 		            <h1>StockPicker</h1>
-		        	<g:VerticalPanel>
-		            	<g:Button styleName="{style.important}" ui:field="buttonShowStocks">Show Stocks</g:Button>
-		            	<g:HTML> </g:HTML>
-		            	<g:Button styleName="{style.important}" ui:field="buttonShowIndexes">Show Indexes</g:Button>
-		            	<g:HTML> </g:HTML>		            	
-		            	<g:Button styleName="{style.important}" ui:field="buttonShowWeights">Show Weight</g:Button>
-			            <g:HTML> </g:HTML>	            	
-		            	<g:Button styleName="{style.important}" ui:field="buttonShowPoints">Show Points</g:Button>
-		            	<g:HTML> </g:HTML>
-		            	<g:Button styleName="{style.important}" ui:field="configure">Configure</g:Button>
-		        	</g:VerticalPanel>
+		        	<my:LeftMenu></my:LeftMenu>
 		  		</g:HTMLPanel>
 		    </g:west>
 		    <g:center>

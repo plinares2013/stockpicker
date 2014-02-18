@@ -41,11 +41,6 @@ public class ShowStocksViewImpl extends Composite implements ShowStocksView {
 	ShowStocksPresenter presenter;
 	
 	@UiField DockLayoutPanel mainDockLayoutPanel;
-	@UiField Button buttonShowStocks;
-	@UiField Button buttonShowIndexes;
-	@UiField Button buttonShowWeights;
-	@UiField Button buttonShowPoints;
-	@UiField Button configure;
 	
 	@UiField FlexTable stocksFlexTable;
 	@UiField TextBox newSymbolTextBox;
@@ -92,21 +87,26 @@ public class ShowStocksViewImpl extends Composite implements ShowStocksView {
 		this.presenter = presenter;
 	}
 	
-	  /* *************  WIDGET CENTERING CODE *************** */
+	  /*   Widget code centering    */
 	 private void setWidgetToMaxWidthAndHeight ()
 	    {
 	        setWidth("100%");
 	        setHeight(Window.getClientHeight() + "px");
 	    }
 	 
-	 /* handle the "Add" click buttom when adding a stock */
+	 /* *********  Taking care of all events in the UiBinder page  ********** */
+	 
+
+	 
+	 /* handle the "Add" click button when adding a stock */
 	 @UiHandler("addStockButton") 
-	 void addStock (ClickEvent event) {
+	 public void  clickedAddStockButton (ClickEvent event) {
 		 if (presenter != null) {
 			 presenter.fetchStock (newSymbolTextBox.getText());
 		 }
 	 }
 
+	 // Handle the ENTER in the textbox to add a symbol
 	 @UiHandler("newSymbolTextBox")
 	 public void addStockFromNewSymbolTextBox (KeyDownEvent event) {
 	        if (event.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
@@ -116,6 +116,7 @@ public class ShowStocksViewImpl extends Composite implements ShowStocksView {
 	          }
 	 }
 	 
+	 // Select the content of the textbox to draw attention from the user
 	 public void addStockTextBoxSelect() {
 	      newSymbolTextBox.selectAll();
 	 }
@@ -145,7 +146,7 @@ public class ShowStocksViewImpl extends Composite implements ShowStocksView {
 		    stocksFlexTable.getCellFormatter().addStyleName(row, 2, "watchListNumericColumn");
 		    stocksFlexTable.getCellFormatter().addStyleName(row, 3, "watchListRemoveColumn");
 		    removeStockButton.addStyleDependentName("remove");
-		    stocksFlexTable.getCellFormatter().addStyleName(0, 4, "watchlistIndexColumn");
+		    stocksFlexTable.getCellFormatter().addStyleName(row, 4, "watchlistIndexColumn");
 	 }
 	 
 	 /* Remove a row when a Stock is deleted from the FlexTable */
@@ -182,8 +183,8 @@ public class ShowStocksViewImpl extends Composite implements ShowStocksView {
 		 String index = NumberFormat.getFormat("#,##0.00").format(data.getIndex());
 		 stocksFlexTable.setText(row,  4,  index);
 		 
-		 //Reset the symbol TextBox entry
-		 newSymbolTextBox.setText("");
+		 //Clear the  TextBox entry
+		 clearNewSymbolTextBox();
 		 
 		 // Display timestamp showing last refresh.  Note: did decide to not add a new method to the ShowStockView interface
 		 lastUpdatedLabel.setText("Last update : "  + DateTimeFormat.getMediumDateTimeFormat().format(new Date()));
@@ -192,6 +193,9 @@ public class ShowStocksViewImpl extends Composite implements ShowStocksView {
 		 errorMsgLabel.setVisible(false);
 	 }
 	 
+	 public void clearNewSymbolTextBox() {
+		 newSymbolTextBox.setText("");
+	 }
 	 
 
 }

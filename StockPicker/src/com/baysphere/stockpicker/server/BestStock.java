@@ -2,17 +2,17 @@ package com.baysphere.stockpicker.server;
 
 import java.util.Date;
 
-import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
+import javax.jdo.annotations.IdGeneratorStrategy;
 
 import com.google.appengine.api.users.User;
 
 @PersistenceCapable (identityType = IdentityType.APPLICATION)
-public class Stock {
-
+public class BestStock {
+	
 	@PrimaryKey 
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	private Long id;
@@ -70,42 +70,12 @@ public class Stock {
 	
 	@Persistent
 	private Date lastUpdated;
-	
 	@Persistent
-	private double EPSQuarterlyGrowthYoY;
-	@Persistent
-	private Date timeIndex;
+	private int rank;
 	
 	
-	public Stock() {
-		this.createDate = new Date();
-	}
-	
-	public Stock (User user, String symbol) {
-		this();
-		this.user = user;
-		this.symbol = symbol;
-	}
-	
-	public Stock (User user, String symbol, double price, double change, double percentChange,
-					double priceSales, double priceBook, double oneYearEPS, double EPSEstimateNextYear,
-					double PriceEstimateEPSCurrentYear, double PriceEstimateEPSNextYear, double PERatio, 
-					double PEGRatio, double quarterlyEPS) {
-		this();
-		this.user = user;
-		this.symbol = symbol;
-		this.price = price;
-		this.change = change;
-		this.percentChange = percentChange;
-		this.priceSales = priceSales;
-		this.priceBook = priceBook;
-		this.oneYearEPS = oneYearEPS;
-		this.EPSEstimateNextYear = EPSEstimateNextYear;
-		this.PriceEstimateEPSCurrentYear = PriceEstimateEPSCurrentYear;
-		this.PriceEstimateEPSNextYear = PriceEstimateEPSNextYear;
-		this.PERatio = PERatio;
-		this.PEGRatio = PEGRatio;
-		this.quarterlyEPS = quarterlyEPS;
+	public BestStock() {
+		return;
 	}
 	
 	public Long getId() {
@@ -308,19 +278,17 @@ public class Stock {
 		this.lastUpdated = lastUpdated;
 	}
 
-	public double getEPSQuarterlyGrowthYoY() {
-		return EPSQuarterlyGrowthYoY;
+	public int getRank() {
+		return rank;
 	}
 
-	public void setEPSQuarterlyGrowthYoY(double ePSQuarterlyGrowthYoY) {
-		EPSQuarterlyGrowthYoY = ePSQuarterlyGrowthYoY;
+	public void setRank(int rank) {
+		this.rank = rank;
 	}
 
-	public Date getTimeIndex() {
-		return timeIndex;
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 
-	public void setTimeIndex(Date timeIndex) {
-		this.timeIndex = timeIndex;
-	}
 }
+

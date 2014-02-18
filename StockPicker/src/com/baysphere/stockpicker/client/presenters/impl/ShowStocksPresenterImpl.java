@@ -3,6 +3,7 @@ package com.baysphere.stockpicker.client.presenters.impl;
 import java.util.ArrayList;
 
 import com.baysphere.stockpicker.client.ClientFactory;
+import com.baysphere.stockpicker.client.Tokens;
 import com.baysphere.stockpicker.client.presenters.ShowStocksPresenter;
 import com.baysphere.stockpicker.client.services.StockServiceAsync;
 import com.baysphere.stockpicker.client.views.ShowStocksView;
@@ -10,6 +11,7 @@ import com.baysphere.stockpicker.shared.StockInformation;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.EventBus;
+import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HasWidgets;
@@ -29,6 +31,7 @@ public class ShowStocksPresenterImpl implements ShowStocksPresenter {
 		this.stockService = clientFactory.getStockService();
 		this.eventBus = clientFactory.getEventBus();
 		this.showStocksView = showStocksView;
+		bind();
 	}
 
 	@Override
@@ -56,8 +59,12 @@ public class ShowStocksPresenterImpl implements ShowStocksPresenter {
 	    }
 	    
 	    //Don't add the stock if it's already in the table.
-	    if (stocks.contains(symbol))
+	    if (stocks.contains(symbol)) {
+	    	showStocksView.clearNewSymbolTextBox();
+	    	Window.alert("Stock " + symbol + " is already in the table");
 	        return;
+	    }
+
 	    
 	    //Otherwise first display the stock in the table
 	    showStocksView.displayStock(symbol);
@@ -89,5 +96,9 @@ public class ShowStocksPresenterImpl implements ShowStocksPresenter {
         int removedIndex = stocks.indexOf(symbol);
         stocks.remove(removedIndex);
         showStocksView.removeStockRow(removedIndex+1);
+	}
+	
+	public void clickedMainPageButton() {
+		History.newItem(Tokens.HOME);
 	}
 }

@@ -1,6 +1,5 @@
 package com.baysphere.stockpicker.client.views;
 
-import com.baysphere.stockpicker.client.presenters.Presenter;
 import com.baysphere.stockpicker.client.presenters.ShowStocksPresenter;
 import com.baysphere.stockpicker.shared.StockInformation;
 import com.google.gwt.user.client.ui.IsWidget;
@@ -13,5 +12,6 @@ public interface ShowStocksView extends IsWidget {
 	void updateTable (StockInformation data, int row);
 	void removeStockRow (int index);
 	void displayErrorMsg(String error);
+	void clearNewSymbolTextBox ();
 
 }

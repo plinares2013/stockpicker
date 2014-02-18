@@ -11,10 +11,16 @@
  	<!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
   	<!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
   	
+  	  <!-- Other module inherits -->  
+  	<inherits name="com.google.gwt.http.HTTP" />
+  	<inherits name="com.google.gwt.logging.Logging"/>
+  	
   	<replace-with class="com.baysphere.stockpicker.client.ClientFactoryImpl">
     <when-type-is class="com.baysphere.stockpicker.client.ClientFactory"/>
  </replace-with>
   	
 	<source path="client" />
+	<source path="shared" />
+
 	<entry-point class="com.baysphere.stockpicker.client.StockPicker" />
 </module>

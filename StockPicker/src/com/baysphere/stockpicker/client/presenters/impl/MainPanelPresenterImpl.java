@@ -3,8 +3,10 @@
  */
 package com.baysphere.stockpicker.client.presenters.impl;
 
+import com.baysphere.stockpicker.client.Tokens;
 import com.baysphere.stockpicker.client.presenters.MainPanelPresenter;
 import com.baysphere.stockpicker.client.views.MainPanelView;
+import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.HasWidgets;
 
 /**
@@ -21,6 +23,7 @@ public class MainPanelPresenterImpl implements MainPanelPresenter {
 	
 	public MainPanelPresenterImpl (MainPanelView mainPanelView) {
 		this.mainPanelView = mainPanelView;
+		bind();
 	}
 	
 	@Override
@@ -37,6 +40,10 @@ public class MainPanelPresenterImpl implements MainPanelPresenter {
 	public void bind() {
 		mainPanelView.setPresenter(this);
 
+	}
+	
+	public void clickedButtonShowStocks() {
+		History.newItem(Tokens.SHOWSTOCKS);
 	}
 
 }

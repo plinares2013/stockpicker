@@ -1,8 +1,139 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns="http://java.sun.com/xml/ns/javaee"
-xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5"
+         xmlns="http://java.sun.com/xml/ns/javaee">
+
+  <!-- Servlets -->
+  <servlet>
+    <servlet-name>loginService</servlet-name>
+    <servlet-class>com.baysphere.stockpicker.server.LoginServiceImpl</servlet-class>
+  </servlet>
   
+  <servlet-mapping>
+    <servlet-name>loginService</servlet-name>
+    <url-pattern>/stockpicker/login</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>stockService</servlet-name>
+    <servlet-class>com.baysphere.stockpicker.server.StockServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>stockService</servlet-name>
+    <url-pattern>/stockpicker/stock</url-pattern>
+  </servlet-mapping>
+  
+     <servlet>
+    <servlet-name>stockPrices</servlet-name>
+    <servlet-class>com.baysphere.stockpicker.server.JsonStockData</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>stockPrices</servlet-name>
+    <url-pattern>/stockpicker/stockPrices</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>yahooQuoteService</servlet-name>
+    <servlet-class>com.baysphere.stockpicker.server.YahooStockServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>yahooQuoteService</servlet-name>
+    <url-pattern>/stockpicker/yahooQuote</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>scheduledInit</servlet-name>
+    <servlet-class>com.baysphere.stockpicker.server.ScheduledInit</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>scheduledInit</servlet-name>
+    <url-pattern>/stockpicker/cron/init</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>tickerList</servlet-name>
+    <servlet-class>com.baysphere.stockpicker.server.TickerList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>tickerList</servlet-name>
+    <url-pattern>/stockpicker/tickerlist</url-pattern>
+  </servlet-mapping>
+  
+
+  <servlet>
+    <servlet-name>refreshStock</servlet-name>
+    <servlet-class>com.baysphere.stockpicker.server.RefreshStock</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>refreshStock</servlet-name>
+    <url-pattern>/stockpicker/cron/refreshStock</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>refreshStock3</servlet-name>
+    <servlet-class>com.baysphere.stockpicker.server.RefreshStock</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>refreshStock3</servlet-name>
+    <url-pattern>/stockpicker/backends/refreshStock</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>stockCalculateAllIndexes</servlet-name>
+    <servlet-class>com.baysphere.stockpicker.server.StockCalculateAllIndexes</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>stockCalculateAllIndexes</servlet-name>
+    <url-pattern>/stockpicker/stockCalculateAllIndexes</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>getTopNIndexStocks</servlet-name>
+    <servlet-class>com.baysphere.stockpicker.server.GetTopNIndexStocks</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getTopNIndexStocks</servlet-name>
+    <url-pattern>/stockpicker/getTopNIndexStocks</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>calculateBestStocksAverages</servlet-name>
+    <servlet-class>com.baysphere.stockpicker.server.StockCalculateTopNAverages</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>calculateBestStocksAverages</servlet-name>
+    <url-pattern>/stockpicker/calculateBestStocksAverages</url-pattern>
+  </servlet-mapping>
+  
+
+  <servlet>
+    <servlet-name>refreshstock2</servlet-name>
+    <servlet-class>com.baysphere.stockpicker.server.RefreshStock</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>refreshstock2</servlet-name>
+    <url-pattern>/_ah/start</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>indexService</servlet-name>
+    <servlet-class>com.baysphere.stockpicker.server.IndexListServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>indexService</servlet-name>
+    <url-pattern>/stockpicker/index</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>stockpicker.html</welcome-file>
+  </welcome-file-list>
+
 </web-app>

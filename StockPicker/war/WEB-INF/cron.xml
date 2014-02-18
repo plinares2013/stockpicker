@@ -1,0 +1,9 @@
+<cronentries>
+  <cron>
+    <url>/stockpicker/backends/refreshStock</url>
+    <description>Refresh Stock information once per week</description>
+    <schedule>every tuesday 15:30</schedule>
+    <timezone>America/Los_Angeles</timezone>
+    <target>backendrefreshstock</target>
+  </cron>
+</cronentries>

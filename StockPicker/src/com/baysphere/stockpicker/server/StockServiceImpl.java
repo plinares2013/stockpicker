@@ -70,7 +70,7 @@ public class StockServiceImpl extends RemoteServiceServlet implements
 		try {
 		Query q = pm.newQuery(Stock.class, "user==u");
 		//Query q = pm.newQuery(Stock.class);
-		//Query q = pm.newQuery("SELECT FROM com.google.gwt.sample.stockwatcher.server.Stock WHERE symbol== tickerParam" +
+		//Query q = pm.newQuery("SELECT FROM com.google.gwt.sample.stockpicker.server.Stock WHERE symbol== tickerParam" +
 		//						"parameters String tickerParam");
 		q.declareParameters("com.google.appengine.api.users.User u");
 		q.setOrdering("createDate");
